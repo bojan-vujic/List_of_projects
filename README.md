@@ -1,9 +1,10 @@
 ##### **Some of the projects I've been working on**
 
-### **Music on repeat
+### **Music on repeat**
 
-Github: Private repository, still working on it when have spare time.
-Hosting: https://bojan.pythonanywhere.com/
+**Github:** Private repository, still working on it when have spare time.
+
+**Hosting:** https://bojan.pythonanywhere.com/
 
 
 This is the most complex django app that I created so far. It has a lot of components. As a user you can search for a song (using youtube api), from a given search result you can add a song to your playlist and then play it on repeat mode. I built this for my personal user because when I listen some music I like to listen the same composition over and over again. The project is still in development even though the main components are finished. It is very popular, at least within my family.
