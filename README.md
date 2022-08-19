@@ -1,6 +1,6 @@
-##### **Some of the projects I've been working on**
+# **Some of the projects I've been working on**
 
-### **Music on repeat**
+## **Music on repeat**
 
 **Github:** Private repository, still working on it when have spare time.
 
@@ -11,19 +11,17 @@ This is the most complex django app that I created so far. It has a lot of compo
 
 There are several django apps within this project.
 
-## **Main app**
+### **Main app**
 
 This app handles all the python logic regarding user login, logout, creation of an account, having the base template for the whole project. I used just a tiny bit of bootstrap and build things mostly on my own using plain CSS.
 
-# **Signup form**
+##### **Signup form**
 
 Users can create an account and for passwords I'm using hashing algorithms so that the password is never stored as a plain text in the db. I also defined some password/username validations.
 
 <img width="300" src="youtube/img-2.png" />
 
-
-
-# **Login form:**
+##### **Login form:**
 
 For the password show/hide button I wrote a short JS function that will basically toggle image src for those two icons.
 
@@ -36,14 +34,14 @@ After login, user is redirected to the index page. As you can see the index page
 <img width="300" src="youtube/img-3.png" />
 
 
-## **Updates**
+#### **Updates**
 
 This app is only for my own use and I created it just to keep track of some updates. Whenever I add certain functionality to the project I would add an item in this part of the database. It is fully functional with complete CRUD operations and for this I've been leveraging AJAX with HTMX, no page refresh is needed.
 
 <img width="300" src="youtube/img-6.png" />
 
 
-## **YouTube app**
+#### **YouTube app**
 
 This is the major app of the project. It handles all the python logic and templates regarding the user experience.
 
