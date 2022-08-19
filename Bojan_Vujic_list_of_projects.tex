@@ -1,0 +1,260 @@
+\documentclass[11pt, onecolumn]{article}
+\usepackage[
+paperheight=297mm,
+paperwidth=210mm,
+left=20mm,top=20mm,right=20mm,bottom=15mm
+]{geometry}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+
+\usepackage{pagecolor}
+\pagecolor{black!1!yellow!3!white}
+
+\newcommand{\demo}[2]{%
+	\vspace{3mm}
+	\begin{tabular}{ll}
+		\textbf{Github repo} & : \color{blue}#1\vspace{1mm}\\
+		\vspace{2mm}\textbf{Hosting} & : \color{blue}#2 \\
+	\end{tabular}
+	\vspace{3mm}
+}
+\renewcommand{\contentsname}{\vspace{10mm}$ $\\ \centering \huge Some of the Django projects I worked on\\\vspace{15mm}}
+
+\newcommand{\fig}[3]{%
+	\vspace{-2mm}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=#1]{\imgDir/#2.png}
+		\vspace{-3mm}
+		\caption[]{#3}
+		\label{fig:#2}
+	\end{figure}
+	\vspace{-2mm}
+}
+
+\def\smiley{\includegraphics[width=4mm]{743267}}
+
+\begin{document}
+
+\pagenumbering{roman}
+\tableofcontents
+
+\pagebreak
+\pagenumbering{arabic}
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Music on repeat}
+\def\imgDir{codepen}
+\demo{\color{black}Private repository, still working on it when have spare time.}{https://bojan.pythonanywhere.com/}
+
+\begin{multicols}{2}
+
+This is the most complex django app that I created so far. It has a lot of components. As a user you can search for a song (using youtube api), from a given search result you can add a song to your playlist and then play it on repeat mode. I built this for my personal user because when I listen some music I like to listen the same composition over and over again. The project is still in development even though the main components are finished. It is very popular, at least within my family. \smiley
+
+There are several django apps within this project.
+
+\subsection*{Main app}
+
+This app handles all the python logic regarding user login, logout, creation of an account, having the base template for the whole project. I used just a tiny bit of bootstrap and build things mostly on my own using plain CSS.
+
+\textbf{Signup form:}
+\noindent
+Users can create an account and for passwords I'm using hashing algorithms so that the password is never stored as a plain text in the db. I also defined some password/username validations.
+
+\def\imgDir{youtube}
+\fig{70mm}{img-1}{Signup form}
+
+
+\textbf{Login form:} For the password show/hide button I wrote a short JS function that will basically toggle image src for those two icons.
+\def\imgDir{youtube}
+\fig{70mm}{img-2}{Signup form}
+\fig{70mm}{img-5}{Handling error.}
+
+After login, user is redirected to the index page. As you can see the index page still requires some work, but that is practically only some styling, nothing more.
+\def\imgDir{youtube}
+\fig{70mm}{img-3}{Snippet of the index page}
+
+\subsection*{Updates}
+
+This app is only for my own use and I created it just to keep track of some updates. Whenever I add certain functionality to the project I would add an item in this part of the database. It is fully functional with complete CRUD operations and for this I've been leveraging AJAX with HTMX, no page refresh is needed. \smiley
+
+\fig{70mm}{img-6}{Updates page}
+
+\subsection*{YouTube app}
+
+This is the major app of the project. It handles all the python logic and templates regarding the user experience.
+
+Once user add a song/video to their playlist, they can play it, add it to the list of favorites, remove completely from the playlist.
+
+\fig{80mm}{img-7}{Snippet of the My Music page.}
+
+The My Music page contains a list of videos that user has added to the playlist.
+
+\fig{80mm}{img-8}{Snippet of the music list.}
+
+\fig{80mm}{img-9}{Code snippet.}
+
+\fig{80mm}{img-10}{Admin panel.}
+
+\end{multicols}
+
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{WebSocket stream with binance api}
+\def\imgDir{websockets}
+\demo{\url{https://github.com/bojan-vujic/WebSocket_Binance}}{\url{https://binancestream.pythonanywhere.com/}}
+
+\begin{multicols}{2}
+In this project I build a django app that will monitor real time price of cryptocurrencies. It consists of two apps, one called main that handles all the user logic and another one bnc that handles the rest of the work. Some django models have been created as well.
+It was a nice challenge since I haven't been working with finance data before, but at the end of the day these are just numbers as any other and I'm very comfortable with it. In my humble opinion this app is only a couple steps away from an autonomous trading bot and I will continue working on it.
+
+As a user you can check for new cryptocurrency symbol:
+
+\fig{70mm}{img-2}{Login system}
+
+Once you are logged in it will redirect you to the index page where you can check for a new symbols.
+
+\fig{80mm}{img-3}{Check for new symbols}
+
+On the Candlestick link user can monitor the real time price for a given cryptocurrency. For these charts I used lightweight JavaScript library and it's very nice and intuitive thing.
+
+\fig{80mm}{img-4}{Candlestick stream}
+
+Finally, user can monitor price in a real time and also compare it with user defined minimum price. For instance if the current price is above the minimum, we can start trading.
+
+\fig{80mm}{img-5}{Trade stream}
+
+\end{multicols}
+
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Django app to upload and download files to/from azure storage}
+\def\imgDir{azure}
+\demo{\url{https://github.com/bojan-vujic/DjangoAzure}}{\url{https://djangoazure.pythonanywhere.com/}}
+
+I started this app originally as a service to upload and download the files from azure web storage. However, since I no longer have an Azure account, I modified the app, so it only works as a service to upload and download files to/from web server where the app is being hosted. It was a nice challenge, but at the end of the day rather simple thing to do.
+
+\fig{120mm}{img-1}{Snippet of the app}
+
+
+
+%\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fika store, django web shop}
+\def\imgDir{fika-group2}
+\demo{\url{https://github.com/Lexicon-Group-2/Coffee_shop}}{\url{https://fikaproject.pythonanywhere.com/home/}}
+
+\begin{multicols}{2}
+In this app I worked as a group coordinator in a group of 4 people. My task was to write all the python functionalities and also a front-end css styling of the Store, Cart and User pages.
+
+\vspace{2mm}
+\noindent
+You can login using these credentials:
+
+\vspace{1mm}
+\noindent
+\begin{tabular}{ll}
+	Username & : \textbf{Jerry},\\
+	Password & : \textbf{django123} \\
+\end{tabular}
+\vspace{2mm}
+
+The store page contains four categories and upon click it will redirect to a particular category, coffee machines, coffee beans, coffee mugs and accessories.
+
+\fig{80mm}{img-1}{Store page}
+
+Each category contains several items which are stored in a database under particular model and then using displayed in a template using django functionalities.
+
+\fig{80mm}{img-2}{Coffee machines}
+
+I also implemented option to add an item into the list of favorite items and user can see all the favorites under favorite page. In the navbar section I added a small div containing number of items in the favorite page and also another one showing number of items in the shopping cart.
+
+\fig{80mm}{img-3}{Section of the navbar}
+
+Shopping cart page contains all the items that user has added. There are standard options to increase/decrease number of items or remove items from the cart. The price is updated accordingly. Due to time constraint we stopped our project here, but later on I continued working on it, implementing various sort options in the cart page and also implementing PayPal paying options.
+
+\fig{80mm}{img-4}{Store page}
+
+User page contains all the shopping history of the current user.
+
+\fig{80mm}{img-5}{User page}
+
+Upon clicking onto button \textbf{Show more}, a new page will appear. It contains all the product that user has purchased in that particular session. My job was to write all the python logic, html templates and css styling for this pages.
+
+\fig{80mm}{img-6}{User page}
+
+\end{multicols}
+
+\vspace{-5mm}
+\fig{120mm}{img-7}{Github commits for this project}
+
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Blog app}
+\def\imgDir{blog}
+\demo{\url{https://github.com/Lexicon-Group-2/Blog-project}}{\color{black}No hosting is provided}
+
+\begin{multicols}{2}
+
+This django application has been done in a collaboration with four people and I was the coordinator of the group. We had only 3 days to work on it and it was a nice exercise. My task was to write all the python logic for the project and organize the things  in a templates. I also did some css styling.
+
+\fig{80mm}{img-1}{Landing page}
+
+User have options to write a post:
+
+\fig{80mm}{img-2}{Blog page}
+
+Upon clicking onto link \textbf{Read more}, a detail page is opened from where user can comment the post.
+
+\fig{80mm}{img-3}{Blog page}
+
+\end{multicols}
+
+\fig{120mm}{img-4}{Github commits for this project}
+
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Couple of projects on Codepen}
+\def\imgDir{codepen}
+\demo{\color{black}No github repository}{https://codepen.io/bojan-vujic}
+
+\begin{multicols}{2}
+
+There are several projects and tests here on my codepen profile.
+
+\noindent
+\textbf{JavaScript calculator:}\\
+\noindent
+\color{blue}\url{https://codepen.io/bojan-vujic/full/rNJVmGq}\color{black}
+\fig{70mm}{img-1}{Calculator}
+
+\noindent
+\textbf{Number to roman converter:}\\
+\noindent
+\color{blue}\url{https://codepen.io/bojan-vujic/full/RwQNQWW}\color{black}
+\fig{70mm}{img-3}{Number to roman numeral}
+
+
+\noindent
+\textbf{JavaScript Tic-Tac-Toe.} My daughter and I enjoyed playing it:\\
+\noindent
+\color{blue}\url{https://codepen.io/bojan-vujic/full/xxYwJQV}\color{black}
+\fig{70mm}{img-2}{Tic-Tac-Toe}
+
+\noindent
+\textbf{Hangman}\\
+My daughter likes to play it a lot. It took me slightly more than 500 lines of code to write it in a multiplayer mode. This is pure javascript, however, using django it would be a lot easier to organize things.\\
+\fig{70mm}{img-4}{Hangman}
+
+\end{multicols}
+
+
+\end{document}
